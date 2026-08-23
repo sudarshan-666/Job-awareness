@@ -1,0 +1,114 @@
+{
+  "jobs": [
+    {
+      "title": "Software Developer",
+      "category": "Information Technology",
+      "qualification": "B.E, B.Tech, B.Sc Computer Science, BCA or equivalent degree",
+      "skills": [
+        "Python",
+        "Java",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "SQL",
+        "Problem solving"
+      ],
+      "salary": "₹3 lakh to ₹12 lakh per year",
+      "experience": "Freshers can apply. Experience is an advantage.",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Chennai, Bengaluru, Hyderabad and other cities",
+      "description": "Software developers design, develop, test and maintain software applications."
+    },
+    {
+      "title": "Data Analyst",
+      "category": "Data and Analytics",
+      "qualification": "B.E, B.Tech, B.Sc, BCA, B.Com or related degree",
+      "skills": [
+        "Python",
+        "SQL",
+        "Excel",
+        "Statistics",
+        "Power BI",
+        "Data visualization"
+      ],
+      "salary": "₹3 lakh to ₹10 lakh per year",
+      "experience": "Freshers and experienced candidates can apply",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Chennai, Bengaluru, Hyderabad, Pune and other cities",
+      "description": "Data analysts examine data and create useful reports and insights."
+    },
+    {
+      "title": "Web Developer",
+      "category": "Web Development",
+      "qualification": "B.E, B.Tech, BCA, B.Sc Computer Science or equivalent qualification",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "SQL"
+      ],
+      "salary": "₹2.5 lakh to ₹9 lakh per year",
+      "experience": "Freshers can apply",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Chennai, Bengaluru, Hyderabad and other cities",
+      "description": "Web developers create and maintain websites and web applications."
+    },
+    {
+      "title": "AI and Machine Learning Engineer",
+      "category": "Artificial Intelligence",
+      "qualification": "B.E, B.Tech, M.E, M.Tech, B.Sc or equivalent qualification in a relevant field",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Deep Learning",
+        "TensorFlow",
+        "PyTorch",
+        "Statistics",
+        "Data preprocessing"
+      ],
+      "salary": "₹4 lakh to ₹18 lakh per year",
+      "experience": "Freshers with strong projects can apply",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Bengaluru, Chennai, Hyderabad, Pune and other technology locations",
+      "description": "AI and machine learning engineers build systems that learn from data."
+    },
+    {
+      "title": "Cybersecurity Analyst",
+      "category": "Cybersecurity",
+      "qualification": "B.E, B.Tech, B.Sc Computer Science, Cybersecurity or related qualification",
+      "skills": [
+        "Networking",
+        "Linux",
+        "Cybersecurity",
+        "Python",
+        "Security monitoring",
+        "Problem solving"
+      ],
+      "salary": "₹3 lakh to ₹12 lakh per year",
+      "experience": "Freshers can apply for entry-level positions",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Chennai, Bengaluru, Hyderabad, Pune and other cities",
+      "description": "Cybersecurity analysts monitor systems and help protect organizations from security threats."
+    },
+    {
+      "title": "Cloud Engineer",
+      "category": "Cloud Computing",
+      "qualification": "B.E, B.Tech, B.Sc Computer Science or related qualification",
+      "skills": [
+        "AWS",
+        "Azure",
+        "Linux",
+        "Networking",
+        "Python",
+        "Docker"
+      ],
+      "salary": "₹4 lakh to ₹15 lakh per year",
+      "experience": "Freshers with cloud certifications and projects can apply",
+      "age": "Usually 18 years and above, depending on the employer",
+      "location": "Bengaluru, Chennai, Hyderabad, Pune and other cities",
+      "description": "Cloud engineers manage applications, services and infrastructure on cloud platforms."
+    }
+  ]
+}
