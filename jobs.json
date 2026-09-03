@@ -1,114 +1,739 @@
-{
-  "jobs": [
-    {
-      "title": "Software Developer",
-      "category": "Information Technology",
-      "qualification": "B.E, B.Tech, B.Sc Computer Science, BCA or equivalent degree",
-      "skills": [
-        "Python",
-        "Java",
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "SQL",
-        "Problem solving"
-      ],
-      "salary": "₹3 lakh to ₹12 lakh per year",
-      "experience": "Freshers can apply. Experience is an advantage.",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Chennai, Bengaluru, Hyderabad and other cities",
-      "description": "Software developers design, develop, test and maintain software applications."
-    },
-    {
-      "title": "Data Analyst",
-      "category": "Data and Analytics",
-      "qualification": "B.E, B.Tech, B.Sc, BCA, B.Com or related degree",
-      "skills": [
-        "Python",
-        "SQL",
-        "Excel",
-        "Statistics",
-        "Power BI",
-        "Data visualization"
-      ],
-      "salary": "₹3 lakh to ₹10 lakh per year",
-      "experience": "Freshers and experienced candidates can apply",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Chennai, Bengaluru, Hyderabad, Pune and other cities",
-      "description": "Data analysts examine data and create useful reports and insights."
-    },
-    {
-      "title": "Web Developer",
-      "category": "Web Development",
-      "qualification": "B.E, B.Tech, BCA, B.Sc Computer Science or equivalent qualification",
-      "skills": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React",
-        "Node.js",
-        "SQL"
-      ],
-      "salary": "₹2.5 lakh to ₹9 lakh per year",
-      "experience": "Freshers can apply",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Chennai, Bengaluru, Hyderabad and other cities",
-      "description": "Web developers create and maintain websites and web applications."
-    },
-    {
-      "title": "AI and Machine Learning Engineer",
-      "category": "Artificial Intelligence",
-      "qualification": "B.E, B.Tech, M.E, M.Tech, B.Sc or equivalent qualification in a relevant field",
-      "skills": [
-        "Python",
-        "Machine Learning",
-        "Deep Learning",
-        "TensorFlow",
-        "PyTorch",
-        "Statistics",
-        "Data preprocessing"
-      ],
-      "salary": "₹4 lakh to ₹18 lakh per year",
-      "experience": "Freshers with strong projects can apply",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Bengaluru, Chennai, Hyderabad, Pune and other technology locations",
-      "description": "AI and machine learning engineers build systems that learn from data."
-    },
-    {
-      "title": "Cybersecurity Analyst",
-      "category": "Cybersecurity",
-      "qualification": "B.E, B.Tech, B.Sc Computer Science, Cybersecurity or related qualification",
-      "skills": [
-        "Networking",
-        "Linux",
-        "Cybersecurity",
-        "Python",
-        "Security monitoring",
-        "Problem solving"
-      ],
-      "salary": "₹3 lakh to ₹12 lakh per year",
-      "experience": "Freshers can apply for entry-level positions",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Chennai, Bengaluru, Hyderabad, Pune and other cities",
-      "description": "Cybersecurity analysts monitor systems and help protect organizations from security threats."
-    },
-    {
-      "title": "Cloud Engineer",
-      "category": "Cloud Computing",
-      "qualification": "B.E, B.Tech, B.Sc Computer Science or related qualification",
-      "skills": [
-        "AWS",
-        "Azure",
-        "Linux",
-        "Networking",
-        "Python",
-        "Docker"
-      ],
-      "salary": "₹4 lakh to ₹15 lakh per year",
-      "experience": "Freshers with cloud certifications and projects can apply",
-      "age": "Usually 18 years and above, depending on the employer",
-      "location": "Bengaluru, Chennai, Hyderabad, Pune and other cities",
-      "description": "Cloud engineers manage applications, services and infrastructure on cloud platforms."
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "title": "Office Helper",
+    "qualification": "Below 8th Standard",
+    "skills": ["Basic communication", "Organization"],
+    "salary": "₹10,000 - ₹15,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 2,
+    "title": "Housekeeping Assistant",
+    "qualification": "Below 8th Standard",
+    "skills": ["Cleaning", "Time management"],
+    "salary": "₹10,000 - ₹16,000",
+    "jobType": "Full Time",
+    "workingHours": "8:00 AM - 4:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 3,
+    "title": "Part-Time Office Helper",
+    "qualification": "Below 8th Standard",
+    "skills": ["Basic communication", "Organization"],
+    "salary": "₹5,000 - ₹8,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 4,
+    "title": "Part-Time Housekeeping Assistant",
+    "qualification": "Below 8th Standard",
+    "skills": ["Cleaning", "Time management"],
+    "salary": "₹5,000 - ₹9,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 5,
+    "title": "Office Assistant",
+    "qualification": "8th Standard",
+    "skills": ["Basic communication", "File handling"],
+    "salary": "₹12,000 - ₹18,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 6,
+    "title": "Store Assistant",
+    "qualification": "8th Standard",
+    "skills": ["Basic counting", "Organization"],
+    "salary": "₹11,000 - ₹17,000",
+    "jobType": "Full Time",
+    "workingHours": "10:00 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 7,
+    "title": "Part-Time Office Assistant",
+    "qualification": "8th Standard",
+    "skills": ["Basic communication", "File handling"],
+    "salary": "₹6,000 - ₹10,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 8,
+    "title": "Part-Time Store Assistant",
+    "qualification": "8th Standard",
+    "skills": ["Basic counting", "Organization"],
+    "salary": "₹6,000 - ₹10,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 9,
+    "title": "Data Entry Operator",
+    "qualification": "10th Standard",
+    "skills": ["Typing", "Basic computer skills"],
+    "salary": "₹15,000 - ₹22,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 10,
+    "title": "Retail Assistant",
+    "qualification": "10th Standard",
+    "skills": ["Customer service", "Communication"],
+    "salary": "₹14,000 - ₹20,000",
+    "jobType": "Full Time",
+    "workingHours": "10:00 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 11,
+    "title": "Part-Time Data Entry Assistant",
+    "qualification": "10th Standard",
+    "skills": ["Typing", "Basic computer skills"],
+    "salary": "₹7,000 - ₹12,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 12,
+    "title": "Part-Time Retail Assistant",
+    "qualification": "10th Standard",
+    "skills": ["Communication", "Customer service"],
+    "salary": "₹7,000 - ₹12,000",
+    "jobType": "Part Time",
+    "workingHours": "4:00 PM - 8:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 13,
+    "title": "Customer Support Executive",
+    "qualification": "12th Standard",
+    "skills": ["Communication", "Basic computer skills"],
+    "salary": "₹18,000 - ₹28,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 14,
+    "title": "Receptionist",
+    "qualification": "12th Standard",
+    "skills": ["Communication", "Computer skills"],
+    "salary": "₹16,000 - ₹25,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 5:30 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 15,
+    "title": "Part-Time Customer Support Assistant",
+    "qualification": "12th Standard",
+    "skills": ["Communication", "Basic computer skills"],
+    "salary": "₹8,000 - ₹15,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 16,
+    "title": "Part-Time Reception Assistant",
+    "qualification": "12th Standard",
+    "skills": ["Communication", "Computer skills"],
+    "salary": "₹8,000 - ₹14,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 17,
+    "title": "Electrician",
+    "qualification": "ITI",
+    "skills": ["Electrical wiring", "Electrical safety"],
+    "salary": "₹15,000 - ₹25,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 18,
+    "title": "Fitter Technician",
+    "qualification": "ITI",
+    "skills": ["Fitting", "Machine tools"],
+    "salary": "₹16,000 - ₹27,000",
+    "jobType": "Full Time",
+    "workingHours": "8:30 AM - 5:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 19,
+    "title": "Part-Time Electrical Assistant",
+    "qualification": "ITI",
+    "skills": ["Electrical basics", "Safety practices"],
+    "salary": "₹8,000 - ₹14,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 20,
+    "title": "Part-Time Fitter Assistant",
+    "qualification": "ITI",
+    "skills": ["Basic fitting", "Machine tools"],
+    "salary": "₹8,000 - ₹15,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 21,
+    "title": "Junior Technician",
+    "qualification": "Diploma",
+    "skills": ["Technical knowledge", "Troubleshooting"],
+    "salary": "₹18,000 - ₹30,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 22,
+    "title": "Electrical Technician",
+    "qualification": "Diploma",
+    "skills": ["Electrical systems", "Testing"],
+    "salary": "₹20,000 - ₹32,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 23,
+    "title": "Part-Time Junior Technician",
+    "qualification": "Diploma",
+    "skills": ["Technical knowledge", "Troubleshooting"],
+    "salary": "₹9,000 - ₹16,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 24,
+    "title": "Part-Time Electrical Technician",
+    "qualification": "Diploma",
+    "skills": ["Electrical systems", "Testing"],
+    "salary": "₹10,000 - ₹18,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 25,
+    "title": "Content Writer",
+    "qualification": "BA",
+    "skills": ["Writing", "Communication", "Editing"],
+    "salary": "₹18,000 - ₹30,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 5:30 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 26,
+    "title": "Teaching Assistant",
+    "qualification": "BA",
+    "skills": ["Teaching", "Communication", "Subject knowledge"],
+    "salary": "₹18,000 - ₹28,000",
+    "jobType": "Full Time",
+    "workingHours": "8:30 AM - 4:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 27,
+    "title": "Part-Time Content Writer",
+    "qualification": "BA",
+    "skills": ["Writing", "Communication"],
+    "salary": "₹8,000 - ₹15,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 28,
+    "title": "Part-Time Tutor",
+    "qualification": "BA",
+    "skills": ["Teaching", "Communication"],
+    "salary": "₹7,000 - ₹14,000",
+    "jobType": "Part Time",
+    "workingHours": "4:00 PM - 7:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 29,
+    "title": "Accounts Assistant",
+    "qualification": "B.Com",
+    "skills": ["Accounting", "Excel", "Bookkeeping"],
+    "salary": "₹20,000 - ₹32,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 30,
+    "title": "Finance Executive",
+    "qualification": "B.Com",
+    "skills": ["Accounting", "Financial analysis", "Excel"],
+    "salary": "₹22,000 - ₹35,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 31,
+    "title": "Part-Time Accounts Assistant",
+    "qualification": "B.Com",
+    "skills": ["Accounting", "Excel"],
+    "salary": "₹9,000 - ₹16,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 32,
+    "title": "Part-Time Bookkeeping Assistant",
+    "qualification": "B.Com",
+    "skills": ["Bookkeeping", "Basic accounting"],
+    "salary": "₹8,000 - ₹15,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 33,
+    "title": "Management Trainee",
+    "qualification": "BBA",
+    "skills": ["Management", "Communication", "Teamwork"],
+    "salary": "₹22,000 - ₹35,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 34,
+    "title": "Marketing Executive",
+    "qualification": "BBA",
+    "skills": ["Marketing", "Communication", "Customer handling"],
+    "salary": "₹20,000 - ₹35,000",
+    "jobType": "Full Time",
+    "workingHours": "10:00 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 35,
+    "title": "Part-Time Marketing Assistant",
+    "qualification": "BBA",
+    "skills": ["Marketing", "Communication"],
+    "salary": "₹9,000 - ₹16,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 36,
+    "title": "Part-Time Business Assistant",
+    "qualification": "BBA",
+    "skills": ["Communication", "Organization"],
+    "salary": "₹8,000 - ₹15,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 37,
+    "title": "Web Developer",
+    "qualification": "BCA",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "salary": "₹25,000 - ₹50,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 38,
+    "title": "Junior Software Developer",
+    "qualification": "BCA",
+    "skills": ["Programming", "Python", "Problem solving"],
+    "salary": "₹25,000 - ₹50,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 39,
+    "title": "Part-Time Web Assistant",
+    "qualification": "BCA",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "salary": "₹10,000 - ₹20,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 40,
+    "title": "Part-Time Programming Assistant",
+    "qualification": "BCA",
+    "skills": ["Programming", "Python"],
+    "salary": "₹10,000 - ₹18,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 41,
+    "title": "Laboratory Assistant",
+    "qualification": "B.Sc",
+    "skills": ["Laboratory skills", "Documentation"],
+    "salary": "₹20,000 - ₹32,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 42,
+    "title": "Research Assistant",
+    "qualification": "B.Sc",
+    "skills": ["Research", "Data analysis", "Documentation"],
+    "salary": "₹22,000 - ₹35,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 43,
+    "title": "Part-Time Laboratory Assistant",
+    "qualification": "B.Sc",
+    "skills": ["Laboratory skills", "Documentation"],
+    "salary": "₹9,000 - ₹16,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 44,
+    "title": "Part-Time Research Assistant",
+    "qualification": "B.Sc",
+    "skills": ["Research", "Data collection"],
+    "salary": "₹9,000 - ₹16,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 45,
+    "title": "Software Engineer",
+    "qualification": "BE/B.Tech",
+    "skills": ["Programming", "Data structures", "Problem solving"],
+    "salary": "₹30,000 - ₹65,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 46,
+    "title": "AI/ML Engineer",
+    "qualification": "BE/B.Tech",
+    "skills": ["Python", "Machine Learning", "Data analysis"],
+    "salary": "₹35,000 - ₹70,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 47,
+    "title": "Part-Time Programming Assistant",
+    "qualification": "BE/B.Tech",
+    "skills": ["Programming", "Problem solving"],
+    "salary": "₹12,000 - ₹22,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 48,
+    "title": "Part-Time Technical Assistant",
+    "qualification": "BE/B.Tech",
+    "skills": ["Technical knowledge", "Documentation"],
+    "salary": "₹12,000 - ₹20,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 49,
+    "title": "Research Associate",
+    "qualification": "MA",
+    "skills": ["Research", "Writing", "Data analysis"],
+    "salary": "₹25,000 - ₹45,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 50,
+    "title": "Content Specialist",
+    "qualification": "MA",
+    "skills": ["Writing", "Editing", "Communication"],
+    "salary": "₹25,000 - ₹45,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 51,
+    "title": "Part-Time Research Assistant",
+    "qualification": "MA",
+    "skills": ["Research", "Writing"],
+    "salary": "₹12,000 - ₹20,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 52,
+    "title": "Part-Time Content Editor",
+    "qualification": "MA",
+    "skills": ["Editing", "Writing"],
+    "salary": "₹10,000 - ₹18,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 53,
+    "title": "Senior Accounts Executive",
+    "qualification": "M.Com",
+    "skills": ["Accounting", "Financial analysis", "Excel"],
+    "salary": "₹28,000 - ₹45,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 54,
+    "title": "Financial Analyst",
+    "qualification": "M.Com",
+    "skills": ["Financial analysis", "Excel", "Accounting"],
+    "salary": "₹30,000 - ₹50,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 55,
+    "title": "Part-Time Accounts Consultant",
+    "qualification": "M.Com",
+    "skills": ["Accounting", "Excel"],
+    "salary": "₹12,000 - ₹22,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "0-1 year"
+  },
+  {
+    "id": 56,
+    "title": "Part-Time Finance Assistant",
+    "qualification": "M.Com",
+    "skills": ["Accounting", "Financial analysis"],
+    "salary": "₹12,000 - ₹20,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 57,
+    "title": "HR Executive",
+    "qualification": "MBA",
+    "skills": ["Human resources", "Communication", "Recruitment"],
+    "salary": "₹30,000 - ₹50,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 58,
+    "title": "Business Analyst",
+    "qualification": "MBA",
+    "skills": ["Data analysis", "Business analysis", "Communication"],
+    "salary": "₹35,000 - ₹60,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 59,
+    "title": "Part-Time HR Assistant",
+    "qualification": "MBA",
+    "skills": ["Recruitment", "Communication"],
+    "salary": "₹14,000 - ₹24,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 60,
+    "title": "Part-Time Business Analyst Assistant",
+    "qualification": "MBA",
+    "skills": ["Data analysis", "Excel"],
+    "salary": "₹14,000 - ₹25,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 61,
+    "title": "Software Developer",
+    "qualification": "MCA",
+    "skills": ["Programming", "Database", "Software development"],
+    "salary": "₹35,000 - ₹65,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 62,
+    "title": "Database Developer",
+    "qualification": "MCA",
+    "skills": ["SQL", "Database management", "Programming"],
+    "salary": "₹32,000 - ₹60,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 63,
+    "title": "Part-Time Software Assistant",
+    "qualification": "MCA",
+    "skills": ["Programming", "Testing"],
+    "salary": "₹14,000 - ₹25,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 64,
+    "title": "Part-Time Database Assistant",
+    "qualification": "MCA",
+    "skills": ["SQL", "Database"],
+    "salary": "₹13,000 - ₹23,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 65,
+    "title": "Data Scientist Assistant",
+    "qualification": "M.Sc",
+    "skills": ["Python", "Statistics", "Data analysis"],
+    "salary": "₹28,000 - ₹50,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 66,
+    "title": "Research Analyst",
+    "qualification": "M.Sc",
+    "skills": ["Research", "Statistics", "Data analysis"],
+    "salary": "₹28,000 - ₹48,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 5:30 PM",
+    "experience": "0-2 years"
+  },
+  {
+    "id": 67,
+    "title": "Part-Time Data Analyst Assistant",
+    "qualification": "M.Sc",
+    "skills": ["Excel", "Python", "Data analysis"],
+    "salary": "₹12,000 - ₹22,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 68,
+    "title": "Part-Time Research Assistant",
+    "qualification": "M.Sc",
+    "skills": ["Research", "Data collection"],
+    "salary": "₹12,000 - ₹20,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  },
+
+  {
+    "id": 69,
+    "title": "Senior Software Engineer",
+    "qualification": "ME/M.Tech",
+    "skills": ["Advanced programming", "System design", "Problem solving"],
+    "salary": "₹40,000 - ₹80,000",
+    "jobType": "Full Time",
+    "workingHours": "9:30 AM - 6:00 PM",
+    "experience": "0-3 years"
+  },
+  {
+    "id": 70,
+    "title": "AI Research Engineer",
+    "qualification": "ME/M.Tech",
+    "skills": ["Machine Learning", "Python", "Research"],
+    "salary": "₹45,000 - ₹90,000",
+    "jobType": "Full Time",
+    "workingHours": "9:00 AM - 6:00 PM",
+    "experience": "0-3 years"
+  },
+  {
+    "id": 71,
+    "title": "Part-Time Technical Research Assistant",
+    "qualification": "ME/M.Tech",
+    "skills": ["Research", "Technical documentation"],
+    "salary": "₹15,000 - ₹28,000",
+    "jobType": "Part Time",
+    "workingHours": "2:00 PM - 6:00 PM",
+    "experience": "Fresher"
+  },
+  {
+    "id": 72,
+    "title": "Part-Time Software Research Assistant",
+    "qualification": "ME/M.Tech",
+    "skills": ["Programming", "Research"],
+    "salary": "₹15,000 - ₹28,000",
+    "jobType": "Part Time",
+    "workingHours": "9:00 AM - 1:00 PM",
+    "experience": "Fresher"
+  }
+]
