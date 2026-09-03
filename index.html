@@ -1,205 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Job Awareness Assistant</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Job Awareness Voice Assistant</title>
+
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
+            padding: 25px;
+
+            background: #101820;
+
+            color: white;
+
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
+
+            text-align: center;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 18px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
-        }
 
         h1 {
-            text-align: center;
+
             font-size: 32px;
+
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #555;
-            margin-bottom: 30px;
-        }
 
-        .status {
-            text-align: center;
-            padding: 18px;
-            border-radius: 12px;
-            background: #eef3f8;
-            font-size: 18px;
-            font-weight: bold;
+        .subtitle {
+
+            font-size: 20px;
+
             margin-bottom: 25px;
         }
 
-        .voice-area {
-            text-align: center;
-            margin: 30px 0;
+
+        .status {
+
+            background: #1d2b36;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin: 20px auto;
+
+            max-width: 700px;
+
+            font-size: 20px;
         }
 
-        #startButton {
-            padding: 18px 35px;
-            border: none;
-            border-radius: 12px;
-            background: #222;
-            color: white;
+
+        .question {
+
+            background: #263746;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin: 20px auto;
+
+            max-width: 700px;
+
             font-size: 20px;
+
+            min-height: 60px;
+        }
+
+
+        .answer {
+
+            background: #182c38;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin: 20px auto;
+
+            max-width: 700px;
+
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            min-height: 80px;
+        }
+
+
+        .start-button {
+
+            font-size: 20px;
+
+            padding: 15px 30px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #1976d2;
+
+            color: white;
+
             cursor: pointer;
         }
 
-        #startButton:hover {
-            opacity: 0.9;
+
+        .start-button:focus {
+
+            outline: 4px solid #ffd54f;
         }
 
-        #answer {
-            margin-top: 25px;
-            padding: 20px;
-            background: #f0f5fa;
-            border-radius: 12px;
-            min-height: 100px;
-            font-size: 18px;
-            line-height: 1.6;
+
+        .hidden {
+
+            display: none;
         }
 
-        .job {
-            background: white;
-            padding: 16px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 5px solid #333;
-        }
-
-        .job h3 {
-            margin-top: 0;
-        }
-
-        .job p {
-            margin: 7px 0;
-        }
-
-        .info {
-            margin-top: 30px;
-            padding: 18px;
-            background: #fafafa;
-            border-radius: 10px;
-        }
-
-        .error {
-            color: #b00020;
-        }
     </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <h1>AI Job Awareness Assistant</h1>
+    <h1>Job Awareness Voice Assistant</h1>
 
-    <p class="subtitle">
-        Voice-Based Job Information System for Visually Impaired Users
-    </p>
 
-    <div id="status" class="status">
+    <div class="subtitle">
+
+        Voice assistance for visually impaired users
+
+    </div>
+
+
+    <div class="status" id="status">
+
         Loading job information...
-    </div>
-
-    <div class="voice-area">
-
-        <button id="startButton">
-            🎙️ Start Voice Assistant
-        </button>
 
     </div>
 
-    <div id="answer">
-        Press Start Voice Assistant and speak your question.
-    </div>
 
-    <div class="info">
+    <div class="question" id="question">
 
-        <h2>Example Questions</h2>
-
-        <p>What jobs can I get after 10th standard?</p>
-        <p>I completed B.Com. What jobs can I get?</p>
-        <p>What part-time jobs are available for BCA?</p>
-        <p>What are the working hours for MBA jobs?</p>
-        <p>What salary can I get after B.Tech?</p>
-        <p>What jobs can I get if I studied below 8th standard?</p>
+        Waiting for your question...
 
     </div>
 
-</div>
+
+    <div class="answer" id="answer">
+
+        The assistant's answer will appear here.
+
+    </div>
+
+
+    <button
+        id="startButton"
+        class="start-button"
+        onclick="startAssistant()">
+
+        🎙️ Start Voice Assistant
+
+    </button>
+
 
 
 <script>
 
+
 /* =====================================================
-   GLOBAL VARIABLES
+   VARIABLES
 ===================================================== */
 
-let jobs = [];
+
+let jobData = [];
 
 let recognition = null;
 
 let assistantRunning = false;
 
-let finalTranscript = "";
-
-let replyTimer = null;
+let listening = false;
 
 let isSpeaking = false;
 
 
-/* =====================================================
-   LOAD JOB DATASET
-===================================================== */
+/*
+   Stores the complete spoken question.
+*/
 
-async function loadJobs() {
+let finalTranscript = "";
 
-    try {
+let interimTranscript = "";
 
-        const response = await fetch("jobs.json");
 
-        if (!response.ok) {
-            throw new Error("jobs.json could not be loaded.");
-        }
+/*
+   4-second timer.
+*/
 
-        jobs = await response.json();
-
-        document.getElementById("status").textContent =
-            "Job information loaded. Press Start and speak.";
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        document.getElementById("status").innerHTML =
-            '<span class="error">Unable to load jobs.json.</span>';
-
-    }
-}
-
-loadJobs();
+let replyTimer = null;
 
 
 /* =====================================================
@@ -209,14 +225,28 @@ loadJobs();
 function speak(text) {
 
     if (!("speechSynthesis" in window)) {
+
+        console.log(
+            "Speech synthesis is not supported."
+        );
+
         return;
     }
 
+
+    /*
+       Stop any previous speech.
+    */
+
     window.speechSynthesis.cancel();
+
 
     isSpeaking = true;
 
-    const speech = new SpeechSynthesisUtterance(text);
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
 
     speech.lang = "en-IN";
 
@@ -227,13 +257,30 @@ function speak(text) {
     speech.volume = 1;
 
 
-    speech.onend = function () {
+    speech.onstart = function() {
+
+        isSpeaking = true;
+
+    };
+
+
+    speech.onend = function() {
 
         isSpeaking = false;
 
+
+        /*
+           After answering, automatically
+           start listening for the next question.
+        */
+
         if (assistantRunning) {
 
-            setTimeout(() => {
+            document.getElementById("status").innerText =
+                "Ready. Please speak your next question.";
+
+
+            setTimeout(function() {
 
                 startListening();
 
@@ -245,411 +292,738 @@ function speak(text) {
 
 
     window.speechSynthesis.speak(speech);
-}
-
-
-/* =====================================================
-   NORMALIZE TEXT
-===================================================== */
-
-function normalize(text) {
-
-    return text
-        .toLowerCase()
-        .replace(/[.,!?]/g, " ")
-        .replace(/\s+/g, " ")
-        .trim();
 
 }
 
 
 /* =====================================================
-   DETECT QUALIFICATION
+   LOAD DATASET
 ===================================================== */
 
-function detectQualification(text) {
+async function loadDataset() {
 
-    const t = normalize(text);
+    try {
+
+        const response =
+            await fetch("jobs.json");
 
 
-    const qualifications = [
+        if (!response.ok) {
 
-        {
-            name: "Below 8th Standard",
-            keywords: [
-                "below 8th",
-                "below eighth",
-                "below 8",
-                "less than 8th",
-                "less than eighth",
-                "not completed 8th",
-                "under 8th"
-            ]
-        },
+            throw new Error(
+                "Could not load jobs.json"
+            );
 
-        {
-            name: "8th Standard",
-            keywords: [
-                "8th standard",
-                "8th std",
-                "eighth standard",
-                "eighth std",
-                "8 standard"
-            ]
-        },
-
-        {
-            name: "10th Standard",
-            keywords: [
-                "10th standard",
-                "10th std",
-                "tenth standard",
-                "tenth std",
-                "10 standard",
-                "sslc"
-            ]
-        },
-
-        {
-            name: "12th Standard",
-            keywords: [
-                "12th standard",
-                "12th std",
-                "twelfth standard",
-                "twelfth std",
-                "12 standard",
-                "plus two",
-                "hsc"
-            ]
-        },
-
-        {
-            name: "ME/M.Tech",
-            keywords: [
-                "me mtech",
-                "mtech",
-                "m tech",
-                "master of engineering",
-                "master of technology"
-            ]
-        },
-
-        {
-            name: "BE/B.Tech",
-            keywords: [
-                "be btech",
-                "btech",
-                "b tech",
-                "bachelor of engineering",
-                "bachelor of technology"
-            ]
-        },
-
-        {
-            name: "M.Com",
-            keywords: [
-                "mcom",
-                "m com",
-                "master of commerce"
-            ]
-        },
-
-        {
-            name: "B.Com",
-            keywords: [
-                "bcom",
-                "b com",
-                "bachelor of commerce"
-            ]
-        },
-
-        {
-            name: "MCA",
-            keywords: [
-                "mca",
-                "master of computer applications"
-            ]
-        },
-
-        {
-            name: "BCA",
-            keywords: [
-                "bca",
-                "bachelor of computer applications"
-            ]
-        },
-
-        {
-            name: "MBA",
-            keywords: [
-                "mba",
-                "master of business administration"
-            ]
-        },
-
-        {
-            name: "BBA",
-            keywords: [
-                "bba",
-                "bachelor of business administration"
-            ]
-        },
-
-        {
-            name: "M.Sc",
-            keywords: [
-                "msc",
-                "m sc",
-                "master of science"
-            ]
-        },
-
-        {
-            name: "B.Sc",
-            keywords: [
-                "bsc",
-                "b sc",
-                "bachelor of science"
-            ]
-        },
-
-        {
-            name: "MA",
-            keywords: [
-                "master of arts"
-            ]
-        },
-
-        {
-            name: "BA",
-            keywords: [
-                "bachelor of arts"
-            ]
-        },
-
-        {
-            name: "Diploma",
-            keywords: [
-                "diploma"
-            ]
-        },
-
-        {
-            name: "ITI",
-            keywords: [
-                "iti",
-                "industrial training institute"
-            ]
         }
 
-    ];
+
+        const data =
+            await response.json();
 
 
-    for (const qualification of qualifications) {
+        /*
+           Your existing dataset uses:
 
-        for (const keyword of qualification.keywords) {
+           {
+               "jobs": [...]
+           }
 
-            if (t.includes(keyword)) {
+           Therefore we keep:
 
-                return qualification.name;
+           data.jobs
+        */
+
+        jobData =
+            data.jobs || [];
+
+
+        document.getElementById("status").innerText =
+            "Job information loaded successfully.";
+
+
+        console.log(
+            "Dataset loaded:",
+            jobData
+        );
+
+
+        return true;
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+
+        document.getElementById("status").innerText =
+            "Unable to load the job database.";
+
+
+        speak(
+            "Sorry. I could not load the job information database."
+        );
+
+
+        return false;
+    }
+
+}
+
+
+/* =====================================================
+   FIND JOB
+===================================================== */
+
+function findJob(question) {
+
+    const q =
+        question.toLowerCase();
+
+
+    let bestJob = null;
+
+    let bestScore = 0;
+
+
+    for (const job of jobData) {
+
+
+        let score = 0;
+
+
+        /*
+           JOB TITLE
+        */
+
+        if (job.title) {
+
+            const titleWords =
+                job.title
+                    .toLowerCase()
+                    .split(" ");
+
+
+            for (const word of titleWords) {
+
+                if (
+                    word.length > 2 &&
+                    q.includes(word)
+                ) {
+
+                    score += 5;
+
+                }
 
             }
 
         }
 
+
+        /*
+           CATEGORY
+        */
+
+        if (job.category) {
+
+            const categoryWords =
+                job.category
+                    .toLowerCase()
+                    .split(" ");
+
+
+            for (const word of categoryWords) {
+
+                if (
+                    word.length > 2 &&
+                    q.includes(word)
+                ) {
+
+                    score += 3;
+
+                }
+
+            }
+
+        }
+
+
+        /*
+           SKILLS
+        */
+
+        if (Array.isArray(job.skills)) {
+
+            for (const skill of job.skills) {
+
+                if (
+                    q.includes(
+                        skill.toLowerCase()
+                    )
+                ) {
+
+                    score += 2;
+
+                }
+
+            }
+
+        }
+
+
+        if (score > bestScore) {
+
+            bestScore = score;
+
+            bestJob = job;
+
+        }
+
     }
 
-    return null;
+
+    return bestJob;
+
 }
 
 
 /* =====================================================
-   DETECT JOB TYPE
+   FIND INTENT
 ===================================================== */
 
-function detectJobType(text) {
+function findIntent(question) {
 
-    const t = normalize(text);
+    const q =
+        question.toLowerCase();
+
+
+    /*
+       SALARY
+    */
 
     if (
-        t.includes("part time") ||
-        t.includes("part-time") ||
-        t.includes("parttime")
+
+        q.includes("salary") ||
+
+        q.includes("pay") ||
+
+        q.includes("package") ||
+
+        q.includes("earn") ||
+
+        q.includes("income")
+
     ) {
 
-        return "Part Time";
+        return "salary";
 
     }
 
+
+    /*
+       QUALIFICATION
+    */
 
     if (
-        t.includes("full time") ||
-        t.includes("full-time") ||
-        t.includes("fulltime")
+
+        q.includes("qualification") ||
+
+        q.includes("degree") ||
+
+        q.includes("education") ||
+
+        q.includes("eligible") ||
+
+        q.includes("eligibility")
+
     ) {
 
-        return "Full Time";
+        return "qualification";
 
     }
 
 
-    return null;
+    /*
+       SKILLS
+    */
+
+    if (
+
+        q.includes("skill") ||
+
+        q.includes("skills") ||
+
+        q.includes("learn") ||
+
+        q.includes("technology")
+
+    ) {
+
+        return "skills";
+
+    }
+
+
+    /*
+       EXPERIENCE
+    */
+
+    if (
+
+        q.includes("experience") ||
+
+        q.includes("fresher")
+
+    ) {
+
+        return "experience";
+
+    }
+
+
+    /*
+       AGE
+    */
+
+    if (
+
+        q.includes("age") ||
+
+        q.includes("years old")
+
+    ) {
+
+        return "age";
+
+    }
+
+
+    /*
+       LOCATION
+    */
+
+    if (
+
+        q.includes("location") ||
+
+        q.includes("where") ||
+
+        q.includes("city")
+
+    ) {
+
+        return "location";
+
+    }
+
+
+    /*
+       DESCRIPTION
+    */
+
+    if (
+
+        q.includes("what does") ||
+
+        q.includes("what is") ||
+
+        q.includes("about") ||
+
+        q.includes("description")
+
+    ) {
+
+        return "description";
+
+    }
+
+
+    /*
+       JOBS
+    */
+
+    if (
+
+        q.includes("job") ||
+
+        q.includes("jobs") ||
+
+        q.includes("career") ||
+
+        q.includes("work")
+
+    ) {
+
+        return "jobs";
+
+    }
+
+
+    return "general";
+
 }
 
 
 /* =====================================================
-   QUESTION TYPE
+   ANSWER QUESTION
 ===================================================== */
 
-function isSalaryQuestion(text) {
+function answerQuestion(question) {
 
-    const t = normalize(text);
-
-    return (
-        t.includes("salary") ||
-        t.includes("pay") ||
-        t.includes("income") ||
-        t.includes("earn")
-    );
-
-}
+    const q =
+        question.toLowerCase();
 
 
-function isTimingQuestion(text) {
-
-    const t = normalize(text);
-
-    return (
-        t.includes("working hours") ||
-        t.includes("work hours") ||
-        t.includes("working time") ||
-        t.includes("timing") ||
-        t.includes("time")
-    );
-
-}
+    const intent =
+        findIntent(question);
 
 
-function isSkillQuestion(text) {
-
-    const t = normalize(text);
-
-    return (
-        t.includes("skill") ||
-        t.includes("skills required") ||
-        t.includes("what should i learn")
-    );
-
-}
+    const job =
+        findJob(question);
 
 
-function isExperienceQuestion(text) {
+    /* =================================================
+       JOB LIST
+    ================================================= */
 
-    const t = normalize(text);
+    if (
 
-    return (
-        t.includes("experience") ||
-        t.includes("years of experience")
-    );
+        intent === "jobs" &&
 
-}
+        !job
 
-
-/* =====================================================
-   DISPLAY JOBS
-===================================================== */
-
-function displayJobs(foundJobs, introduction) {
-
-    const answer = document.getElementById("answer");
+    ) {
 
 
-    if (foundJobs.length === 0) {
+        if (jobData.length === 0) {
 
-        answer.innerHTML =
-            "<p>No matching jobs were found in the dataset.</p>";
+            return
+                "There are currently no jobs available in the dataset.";
 
-        speak(
-            "Sorry. I could not find matching jobs in my job information."
+        }
+
+
+        const names =
+            jobData
+                .map(j => j.title)
+                .join(", ");
+
+
+        return (
+
+            "The jobs currently available in my database are: "
+
+            + names +
+
+            ". You can ask me about the qualification, skills, salary, experience or location of any of these jobs."
+
         );
 
-        return;
+    }
+
+
+    /* =================================================
+       SPECIFIC JOB
+    ================================================= */
+
+    if (job) {
+
+
+        /* ---------------------------------------------
+           QUALIFICATION
+        --------------------------------------------- */
+
+        if (intent === "qualification") {
+
+            return (
+
+                job.title +
+
+                " requires " +
+
+                job.qualification +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           SKILLS
+        --------------------------------------------- */
+
+        if (intent === "skills") {
+
+            return (
+
+                "For " +
+
+                job.title +
+
+                ", useful skills include " +
+
+                job.skills.join(", ") +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           SALARY
+        --------------------------------------------- */
+
+        if (intent === "salary") {
+
+            return (
+
+                "The expected salary range for " +
+
+                job.title +
+
+                " is " +
+
+                job.salary +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           EXPERIENCE
+        --------------------------------------------- */
+
+        if (intent === "experience") {
+
+            return (
+
+                "For " +
+
+                job.title +
+
+                ", " +
+
+                job.experience +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           AGE
+        --------------------------------------------- */
+
+        if (intent === "age") {
+
+            return (
+
+                "The age information for " +
+
+                job.title +
+
+                " is: " +
+
+                job.age +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           LOCATION
+        --------------------------------------------- */
+
+        if (intent === "location") {
+
+            return (
+
+                "You can find " +
+
+                job.title +
+
+                " opportunities in " +
+
+                job.location +
+
+                "."
+
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           DESCRIPTION
+        --------------------------------------------- */
+
+        if (intent === "description") {
+
+            return (
+
+                job.title +
+
+                " is a " +
+
+                job.category +
+
+                " career. " +
+
+                job.description
+
+            );
+
+        }
+
+
+        /*
+           DEFAULT SPECIFIC JOB ANSWER
+        */
+
+        return (
+
+            job.title +
+
+            " is a " +
+
+            job.category +
+
+            " job. " +
+
+            job.description +
+
+            " You can ask me about its qualifications, skills, salary, experience or location."
+
+        );
 
     }
 
 
-    let html =
-        "<p>" + introduction + "</p>";
+    /* =================================================
+       GENERAL QUESTIONS
+    ================================================= */
 
 
-    let speechText =
-        introduction + " ";
+    if (intent === "qualification") {
+
+        return (
+
+            "I can tell you the qualifications required for different jobs. Please mention the job you are interested in."
+
+        );
+
+    }
 
 
-    foundJobs.forEach(function(job) {
+    if (intent === "skills") {
 
-        html += `
+        return (
 
-            <div class="job">
+            "I can provide the skills required for different jobs. Please tell me the job you are interested in."
 
-                <h3>${job.title}</h3>
+        );
 
-                <p>
-                    <strong>Qualification:</strong>
-                    ${job.qualification}
-                </p>
-
-                <p>
-                    <strong>Job Type:</strong>
-                    ${job.jobType}
-                </p>
-
-                <p>
-                    <strong>Salary:</strong>
-                    ${job.salary}
-                </p>
-
-                <p>
-                    <strong>Working Hours:</strong>
-                    ${job.workingHours}
-                </p>
-
-                <p>
-                    <strong>Skills:</strong>
-                    ${job.skills.join(", ")}
-                </p>
-
-                <p>
-                    <strong>Experience:</strong>
-                    ${job.experience}
-                </p>
-
-            </div>
-
-        `;
+    }
 
 
-        speechText +=
+    if (intent === "salary") {
 
-            job.title +
-            ". Job type: " +
-            job.jobType +
-            ". Salary: " +
-            job.salary +
-            ". Working hours: " +
-            job.workingHours +
-            ". Skills required: " +
-            job.skills.join(", ") +
-            ". Experience: " +
-            job.experience +
-            ". ";
+        return (
 
-    });
+            "I can provide salary information for different jobs. Please tell me the job title."
+
+        );
+
+    }
 
 
-    answer.innerHTML = html;
+    if (intent === "experience") {
 
-    speak(speechText);
+        return (
+
+            "I can tell you whether a job is suitable for freshers and what experience is useful. Please tell me the job title."
+
+        );
+
+    }
+
+
+    if (intent === "location") {
+
+        return (
+
+            "I can tell you where different jobs are available. Please mention the job you are interested in."
+
+        );
+
+    }
+
+
+    /* =================================================
+       GREETING
+    ================================================= */
+
+    if (
+
+        q.includes("hello") ||
+
+        q.includes("hi") ||
+
+        q.includes("hey")
+
+    ) {
+
+        return (
+
+            "Hello. I am your job awareness voice assistant. You can ask me about jobs, qualifications, skills, salary, experience, age requirements or job locations."
+
+        );
+
+    }
+
+
+    /* =================================================
+       HELP
+    ================================================= */
+
+    if (
+
+        q.includes("help") ||
+
+        q.includes("what can you do")
+
+    ) {
+
+        return (
+
+            "I can provide job awareness information from my database. You can ask me about available jobs, qualifications, skills, salary, experience, age requirements or job locations."
+
+        );
+
+    }
+
+
+    /* =================================================
+       DEFAULT
+    ================================================= */
+
+    return (
+
+        "I could not find a specific answer to that question. You can ask me about available jobs, qualifications, skills, salary, experience, age requirements or locations."
+
+    );
 
 }
 
@@ -660,500 +1034,405 @@ function displayJobs(foundJobs, introduction) {
 
 function processQuestion(question) {
 
-    if (!question) {
-
-        speak(
-            "I did not hear a question. Please ask me about jobs."
-        );
-
-        return;
-
-    }
-
-
-    if (jobs.length === 0) {
-
-        speak(
-            "The job information is not loaded yet."
-        );
+    if (
+        !question ||
+        question.trim() === ""
+    ) {
 
         return;
 
     }
 
 
-    const text = normalize(question);
+    /*
+       Display question.
+    */
 
+    document.getElementById("question").innerText =
 
-    const qualification =
-        detectQualification(text);
+        "You asked: " +
 
+        question;
 
-    const jobType =
-        detectJobType(text);
 
+    /*
+       Show processing message.
+    */
 
-    /* -----------------------------------------------
-       NO QUALIFICATION
-    ------------------------------------------------ */
+    document.getElementById("status").innerText =
 
-    if (!qualification) {
+        "Preparing your answer...";
 
-        if (
-            text.includes("job") ||
-            text.includes("jobs") ||
-            text.includes("work") ||
-            text.includes("career")
-        ) {
 
-            const message =
-                "Please tell me your qualification. For example, 10th standard, 12th standard, B.Com, BCA, MBA, or B.Tech.";
+    /*
+       Generate answer.
+    */
 
-            document.getElementById("answer").innerHTML =
-                "<p>" + message + "</p>";
+    const answer =
+        answerQuestion(question);
 
-            speak(message);
 
-            return;
+    /*
+       Display answer.
+    */
 
-        }
+    document.getElementById("answer").innerText =
+        answer;
 
-    }
 
+    /*
+       Speak answer.
+    */
 
-    /* -----------------------------------------------
-       QUALIFICATION FOUND
-    ------------------------------------------------ */
-
-    if (qualification) {
-
-        let results = jobs.filter(function(job) {
-
-            return job.qualification === qualification;
-
-        });
-
-
-        /* -------------------------------------------
-           FILTER BY JOB TYPE
-        ------------------------------------------- */
-
-        if (jobType) {
-
-            results = results.filter(function(job) {
-
-                return job.jobType === jobType;
-
-            });
-
-        }
-
-
-        /* -------------------------------------------
-           SALARY QUESTION
-        ------------------------------------------- */
-
-        if (isSalaryQuestion(text)) {
-
-            if (results.length > 0) {
-
-                let message = "";
-
-                results.forEach(function(job) {
-
-                    message +=
-                        job.title +
-                        ": salary " +
-                        job.salary +
-                        ". ";
-
-                });
-
-
-                document.getElementById("answer").innerHTML =
-                    "<p>" + message + "</p>";
-
-
-                speak(message);
-
-            }
-
-            return;
-        }
-
-
-        /* -------------------------------------------
-           TIMING QUESTION
-        ------------------------------------------- */
-
-        if (isTimingQuestion(text)) {
-
-            if (results.length > 0) {
-
-                let message = "";
-
-                results.forEach(function(job) {
-
-                    message +=
-                        job.title +
-                        ": working hours are " +
-                        job.workingHours +
-                        ". ";
-
-                });
-
-
-                document.getElementById("answer").innerHTML =
-                    "<p>" + message + "</p>";
-
-
-                speak(message);
-
-            }
-
-            return;
-        }
-
-
-        /* -------------------------------------------
-           SKILLS QUESTION
-        ------------------------------------------- */
-
-        if (isSkillQuestion(text)) {
-
-            if (results.length > 0) {
-
-                let message = "";
-
-                results.forEach(function(job) {
-
-                    message +=
-                        job.title +
-                        " requires " +
-                        job.skills.join(", ") +
-                        ". ";
-
-                });
-
-
-                document.getElementById("answer").innerHTML =
-                    "<p>" + message + "</p>";
-
-
-                speak(message);
-
-            }
-
-            return;
-        }
-
-
-        /* -------------------------------------------
-           EXPERIENCE QUESTION
-        ------------------------------------------- */
-
-        if (isExperienceQuestion(text)) {
-
-            if (results.length > 0) {
-
-                let message = "";
-
-                results.forEach(function(job) {
-
-                    message +=
-                        job.title +
-                        ": " +
-                        job.experience +
-                        ". ";
-
-                });
-
-
-                document.getElementById("answer").innerHTML =
-                    "<p>" + message + "</p>";
-
-
-                speak(message);
-
-            }
-
-            return;
-        }
-
-
-        /* -------------------------------------------
-           SHOW JOBS
-        ------------------------------------------- */
-
-        let introduction =
-            "I found " +
-            results.length +
-            " job opportunities for " +
-            qualification;
-
-
-        if (jobType) {
-
-            introduction +=
-                " for " +
-                jobType.toLowerCase() +
-                " work";
-
-        }
-
-
-        introduction += ".";
-
-
-        displayJobs(
-            results,
-            introduction
-        );
-
-
-        return;
-
-    }
-
-
-    /* -----------------------------------------------
-       UNKNOWN QUESTION
-    ------------------------------------------------ */
-
-    const message =
-        "I can provide job information based on qualification, job type, salary, working hours, skills and experience.";
-
-    document.getElementById("answer").innerHTML =
-        "<p>" + message + "</p>";
-
-    speak(message);
+    speak(answer);
 
 }
 
 
 /* =====================================================
-   VOICE RECOGNITION
+   SPEECH RECOGNITION
 ===================================================== */
 
-const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+function setupRecognition() {
 
 
-if (!SpeechRecognition) {
+    const SpeechRecognition =
 
-    document.getElementById("status").innerHTML =
-        '<span class="error">Voice recognition is not supported in this browser. Please use a supported browser.</span>';
+        window.SpeechRecognition ||
 
-}
-else {
+        window.webkitSpeechRecognition;
+
+
+    if (!SpeechRecognition) {
+
+        document.getElementById("status").innerText =
+
+            "Voice recognition is not supported in this browser.";
+
+
+        speak(
+
+            "Voice recognition is not supported in this browser. Please use Google Chrome."
+
+        );
+
+
+        return false;
+
+    }
+
 
     recognition =
         new SpeechRecognition();
 
 
-    recognition.lang =
-        "en-IN";
+    /*
+       IMPORTANT:
+
+       continuous = true
+
+       This allows the user to continue speaking.
+    */
+
+    recognition.continuous = true;
 
 
-    recognition.continuous =
-        true;
+    recognition.interimResults = true;
 
 
-    recognition.interimResults =
-        true;
+    recognition.lang = "en-IN";
 
 
-    /* -----------------------------------------------
-       VOICE RESULT
-    ------------------------------------------------ */
+    /* =================================================
+       WHEN LISTENING STARTS
+    ================================================= */
 
-    recognition.onresult =
-        function(event) {
+    recognition.onstart = function() {
 
-            let interimTranscript = "";
-
-            let newFinalText = "";
+        listening = true;
 
 
-            for (
-                let i = event.resultIndex;
-                i < event.results.length;
-                i++
+        document.getElementById("status").innerText =
+
+            "🎙️ Listening... Speak continuously.";
+
+    };
+
+
+    /* =================================================
+       SPEECH RESULT
+    ================================================= */
+
+    recognition.onresult = function(event) {
+
+
+        /*
+           Process all newly received speech.
+        */
+
+        for (
+
+            let i = event.resultIndex;
+
+            i < event.results.length;
+
+            i++
+
+        ) {
+
+
+            const transcript =
+
+                event.results[i][0].transcript;
+
+
+            if (
+                event.results[i].isFinal
             ) {
 
-                const transcript =
-                    event.results[i][0].transcript;
-
-
-                if (event.results[i].isFinal) {
-
-                    newFinalText +=
-                        transcript + " ";
-
-                }
-                else {
-
-                    interimTranscript +=
-                        transcript;
-
-                }
-
-            }
-
-
-            if (newFinalText) {
+                /*
+                   Add final speech to complete question.
+                */
 
                 finalTranscript +=
-                    newFinalText;
+                    transcript + " ";
+
+                interimTranscript = "";
+
+            }
+            else {
+
+                /*
+                   Temporary speech.
+                */
+
+                interimTranscript +=
+                    transcript;
 
             }
 
-
-            const currentText =
-                (
-                    finalTranscript +
-                    interimTranscript
-                ).trim();
+        }
 
 
-            if (currentText) {
+        /*
+           Complete current question.
+        */
 
-                document.getElementById("answer").innerHTML =
-                    "<p><strong>You said:</strong> " +
-                    currentText +
-                    "</p>";
+        const currentQuestion =
 
-                document.getElementById("status").textContent =
-                    "Listening...";
+            (
 
-            }
+                finalTranscript +
 
+                interimTranscript
 
-            /* ---------------------------------------
-               RESET 4 SECOND TIMER
-            ---------------------------------------- */
-
-            clearTimeout(replyTimer);
+            ).trim();
 
 
-            replyTimer = setTimeout(
-                function() {
+        if (currentQuestion) {
 
-                    if (
-                        finalTranscript.trim() ||
-                        interimTranscript.trim()
-                    ) {
+            document.getElementById("question").innerText =
 
-                        const question =
-                            (
-                                finalTranscript +
-                                interimTranscript
-                            ).trim();
+                "You are saying: " +
+
+                currentQuestion;
 
 
-                        /*
-                           Stop recognition temporarily
-                           before giving the answer.
-                        */
+            document.getElementById("status").innerText =
 
-                        try {
-
-                            recognition.stop();
-
-                        }
-                        catch (error) {
-
-                            console.log(error);
-
-                        }
+                "🎙️ Listening...";
 
 
-                        document.getElementById("status").textContent =
-                            "Preparing your answer...";
+        }
 
 
-                        /*
-                           ANSWER AFTER 4 SECONDS
-                        */
+        /*
+           IMPORTANT:
 
-                        setTimeout(
-                            function() {
+           Every time new speech arrives,
+           restart the 4-second timer.
 
-                                processQuestion(
-                                    question
-                                );
+           Therefore the assistant waits until
+           4 seconds AFTER the user stops speaking.
+        */
 
-
-                                finalTranscript =
-                                    "";
-
-                            },
-                            4000
-                        );
-
-                    }
-
-                },
-                4000
-            );
-
-        };
+        clearTimeout(replyTimer);
 
 
-    /* -----------------------------------------------
-       VOICE ERROR
-    ------------------------------------------------ */
+        replyTimer = setTimeout(
 
-    recognition.onerror =
-        function(event) {
+            function() {
 
-            console.log(
-                "Speech recognition error:",
-                event.error
-            );
+                const completeQuestion =
 
+                    (
 
-            if (
-                event.error === "not-allowed" ||
-                event.error === "service-not-allowed"
-            ) {
+                        finalTranscript +
 
-                document.getElementById("status").textContent =
-                    "Microphone permission is required.";
+                        interimTranscript
 
-                assistantRunning =
-                    false;
-
-            }
-
-        };
+                    ).trim();
 
 
-    /* -----------------------------------------------
-       AUTOMATIC RESTART
-    ------------------------------------------------ */
+                if (
+                    completeQuestion.length === 0
+                ) {
 
-    recognition.onend =
-        function() {
+                    return;
 
-            if (
-                assistantRunning &&
-                !isSpeaking
-            ) {
+                }
 
-                setTimeout(
-                    function() {
 
-                        startListening();
+                /*
+                   Stop microphone temporarily.
+                */
 
-                    },
-                    500
+                try {
+
+                    recognition.stop();
+
+                }
+
+                catch (error) {
+
+                    console.log(error);
+
+                }
+
+
+                listening = false;
+
+
+                /*
+                   Clear the transcript variables
+                   BEFORE answering.
+                */
+
+                finalTranscript = "";
+
+                interimTranscript = "";
+
+
+                /*
+                   Give the answer.
+                */
+
+                processQuestion(
+                    completeQuestion
                 );
 
-            }
+            },
 
-        };
+            4000
+
+        );
+
+    };
+
+
+    /* =================================================
+       RECOGNITION ERROR
+    ================================================= */
+
+    recognition.onerror = function(event) {
+
+
+        console.log(
+
+            "Speech recognition error:",
+
+            event.error
+
+        );
+
+
+        listening = false;
+
+
+        if (
+            event.error === "not-allowed" ||
+            event.error === "service-not-allowed"
+        ) {
+
+            assistantRunning = false;
+
+
+            document.getElementById("status").innerText =
+
+                "Microphone permission is required.";
+
+            return;
+
+        }
+
+
+        /*
+           Automatically try listening again.
+        */
+
+        if (assistantRunning) {
+
+            setTimeout(
+
+                function() {
+
+                    startListening();
+
+                },
+
+                1000
+
+            );
+
+        }
+
+    };
+
+
+    /* =================================================
+       RECOGNITION ENDS
+    ================================================= */
+
+    recognition.onend = function() {
+
+
+        listening = false;
+
+
+        /*
+           If the assistant is running and it is
+           NOT currently speaking, restart listening.
+
+           This helps browsers that automatically
+           stop speech recognition.
+        */
+
+        if (
+
+            assistantRunning &&
+
+            !isSpeaking
+
+        ) {
+
+            setTimeout(
+
+                function() {
+
+                    startListening();
+
+                },
+
+                500
+
+            );
+
+        }
+
+    };
+
+
+    return true;
 
 }
 
@@ -1164,9 +1443,11 @@ else {
 
 function startListening() {
 
+
     if (
         !assistantRunning ||
         !recognition ||
+        listening ||
         isSpeaking
     ) {
 
@@ -1179,15 +1460,16 @@ function startListening() {
 
         recognition.start();
 
-        document.getElementById("status").textContent =
-            "🎙️ Listening... Speak your question.";
-
     }
 
     catch (error) {
 
         console.log(
-            "Recognition already running."
+
+            "Recognition already running:",
+
+            error
+
         );
 
     }
@@ -1196,45 +1478,115 @@ function startListening() {
 
 
 /* =====================================================
-   START BUTTON
+   START ASSISTANT
 ===================================================== */
 
-document
-    .getElementById("startButton")
-    .addEventListener(
-        "click",
-        function() {
-
-            if (!recognition) {
-
-                return;
-
-            }
+async function startAssistant() {
 
 
-            assistantRunning =
-                true;
+    /*
+       Prevent multiple starts.
+    */
+
+    if (assistantRunning) {
+
+        return;
+
+    }
 
 
-            finalTranscript =
-                "";
+    assistantRunning = true;
 
 
-            clearTimeout(
-                replyTimer
-            );
+    /*
+       Hide start button.
+    */
+
+    document
+        .getElementById("startButton")
+        .classList.add("hidden");
 
 
-            document.getElementById("status").textContent =
-                "🎙️ Listening... Speak your question.";
+    /*
+       Load dataset.
+    */
+
+    const loaded =
+        await loadDataset();
 
 
-            startListening();
+    if (!loaded) {
 
-        }
-    );
+        assistantRunning = false;
+
+        return;
+
+    }
+
+
+    /*
+       Setup microphone.
+    */
+
+    const recognitionReady =
+        setupRecognition();
+
+
+    if (!recognitionReady) {
+
+        assistantRunning = false;
+
+        return;
+
+    }
+
+
+    /*
+       Welcome message.
+    */
+
+    const welcome =
+
+        "Welcome to the Job Awareness Voice Assistant. " +
+
+        "I can help you find information about jobs, qualifications, skills, salary, experience, age requirements and locations. " +
+
+        "Please speak your question.";
+
+
+    document.getElementById("answer").innerText =
+        welcome;
+
+
+    /*
+       Speak welcome.
+    */
+
+    speak(welcome);
+
+}
+
+
+/* =====================================================
+   INITIAL PAGE
+===================================================== */
+
+window.addEventListener(
+
+    "load",
+
+    function() {
+
+        document.getElementById("status").innerText =
+
+            "Ready. Press Start Voice Assistant.";
+
+    }
+
+);
 
 </script>
 
 </body>
+
 </html>
